@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizi.UI", "Bizi.UI\Bizi.UI.csproj", "{AE5A88DD-2E70-4F49-9467-7462693C3CE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizi.Domain", "Bizi.Domain\Bizi.Domain.csproj", "{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE5A88DD-2E70-4F49-9467-7462693C3CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE5A88DD-2E70-4F49-9467-7462693C3CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE5A88DD-2E70-4F49-9467-7462693C3CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE5A88DD-2E70-4F49-9467-7462693C3CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27DC3473-8B55-4C75-962E-0FD22EF66EAE}
+	EndGlobalSection
+EndGlobal
