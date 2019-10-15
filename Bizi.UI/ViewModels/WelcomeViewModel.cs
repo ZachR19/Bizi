@@ -1,13 +1,16 @@
-﻿using System.Diagnostics;
+﻿using Caliburn.Micro;
+using System.Diagnostics;
 
 namespace Bizi.UI
 {
     public class WelcomeViewModel : BaseViewModel
     {
+
         public WelcomeViewModel() : base()
         {
-
+            DisplayName = "Welcome";
         }
+
 
         /// <summary>
         /// Opens the Github page for Bizi

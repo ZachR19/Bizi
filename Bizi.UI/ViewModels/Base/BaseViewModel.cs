@@ -13,7 +13,6 @@ namespace Bizi.UI
         /// </summary>
         public BaseViewModel()
         {
-
         }
 
         public bool IsBusy { get; set; }

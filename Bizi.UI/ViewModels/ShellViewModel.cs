@@ -6,9 +6,14 @@ namespace Bizi.UI
 {
     public class ShellViewModel : Conductor<Screen>.Collection.AllActive
     {
-        public ShellViewModel()
+        private IWindowManager _winManager;
+
+        public ShellViewModel(IWindowManager winman, 
+                              WelcomeViewModel welcome)
         {
-            ActivateItem(new WelcomeViewModel());
+            _winManager = winman;
+
+            ActivateItem(welcome);
         }
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using Bizi.Domain;
 using Caliburn.Micro;
 
 namespace Bizi.UI
@@ -20,7 +21,8 @@ namespace Bizi.UI
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
-                .Singleton<IEventAggregator, EventAggregator>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .Singleton<ISplashScreenViewModel, SplashScreenViewModel>();
 
             GetType().Assembly.GetTypes()
                 .Where(vmtype => vmtype.IsClass && vmtype.Name.EndsWith("ViewModel"))
