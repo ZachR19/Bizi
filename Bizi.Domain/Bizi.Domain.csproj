@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IBiziViewModel.cs" />
     <Compile Include="Interfaces\ILoadableViewModel.cs" />
     <Compile Include="Interfaces\ISavableViewModel.cs" />
     <Compile Include="Interfaces\ISplashScreenViewModel.cs" />
+    <Compile Include="Messages\ChangeViewMessage.cs" />
     <Compile Include="Messages\GenericMessage.cs" />
     <Compile Include="Messages\LoadedMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

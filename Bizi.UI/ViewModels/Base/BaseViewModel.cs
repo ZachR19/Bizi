@@ -1,12 +1,13 @@
-﻿using System;
-using Caliburn.Micro;
+﻿using Stylet;
+using System;
+using System.ComponentModel;
 
 namespace Bizi.UI
 {
     /// <summary>
     /// Disposable wrapper for any viewmodel
     /// </summary>
-    public class BaseViewModel : Screen, IDisposable
+    public class BaseViewModel : Screen, IDisposable, INotifyPropertyChanged
     {
         /// <summary>
         /// Initializes a new instance of <see cref="BaseViewModel"/>
