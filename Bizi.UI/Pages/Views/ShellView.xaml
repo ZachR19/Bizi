@@ -17,42 +17,103 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="40"
+                      ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"
+                      GlassFrameThickness="0"
+                      CornerRadius="10"/>
+    </WindowChrome.WindowChrome>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <!-- Navigation -->
-        <ContentControl s:View.Model="{Binding NavBar}"/>
+        <!-- WindowChrome Caption -->
+        <Grid Height="40" Grid.Column="1" Background="{StaticResource BorderDarkBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
 
+            <TextBlock Text="Business Dashboard" 
+                       FontSize="22" FontFamily="Helvetica" FontWeight="Light"
+                       VerticalAlignment="Center" 
+                       Margin="10, 15, 0, 0"/>
+
+            <Button Background="Transparent" 
+                    Content="_" 
+                    BorderThickness="0"
+                    Foreground="White" 
+                    Grid.Column="1"/>
+            
+            <Button Background="Transparent" 
+                    Content="_" 
+                    BorderThickness="0"
+                    Foreground="White" 
+                    Grid.Column="2"/>
+            
+            <Button Background="Transparent" 
+                    Content="X" 
+                    BorderThickness="0"
+                    Foreground="White" 
+                    Grid.Column="3"
+                    Margin="0,0,8,0" 
+                    VerticalAlignment="Center"/>
+        </Grid>
+        
+        <!-- Navigation -->
+        <Grid Width="50" Background="{StaticResource BorderDarkBrush}" Grid.RowSpan="2">
+            <!--<ContentControl s:View.Model="{Binding NavBar}"/>-->
+            
+        </Grid>
 
         <ContentControl s:View.Model="{Binding ActiveItem}" 
                         Grid.Row="1"
+                        Grid.Column="1"
                         VerticalContentAlignment="Stretch" 
                         HorizontalContentAlignment="Stretch" 
-                        Background="Transparent"/>
+                        Background="Transparent">
+            
+        </ContentControl>
 
-        <DockPanel x:Name="StatusBar" Grid.Row="2">
-            <materialDesign:ColorZone
-                Padding="4"
-                materialDesign:ShadowAssist.ShadowDepth="Depth2"
-                DockPanel.Dock="Bottom"
-                Mode="PrimaryMid">
+        <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource BackgroundDarkBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border CornerRadius="10" 
+                        BorderThickness="1" 
+                        Background="{StaticResource BackgroundLightBrush}"
+                        Margin="20, 10, 20, 20">
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
 
-                    <TextBlock
-                        Padding="4,0"
-                        VerticalAlignment="Center"
-                        Text="v0.0.1" />
                 </Grid>
-            </materialDesign:ColorZone>
-        </DockPanel>
+            </Border>
+
+            <Border Grid.Row="1"
+                        CornerRadius="10" 
+                        BorderThickness="1" 
+                        Background="{StaticResource BackgroundMediumBrush}"
+                        Margin="20, 10, 20, 20">
+                <Grid>
+
+                </Grid>
+
+            </Border>
+        </Grid>
     </Grid>
 </Window>

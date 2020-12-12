@@ -1,0 +1,101 @@
+﻿<Window x:Class="Bizi.UI.Pages.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mdix="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Bizi.UI.Pages"
+        mc:Ignorable="d"
+        Title="LoginView" Height="450" Width="380"
+        AllowsTransparency="True"
+        WindowStyle="None" ResizeMode="NoResize">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50"
+                      GlassFrameThickness="0"
+                      CornerRadius="20"/>
+    </WindowChrome.WindowChrome>
+    
+    <Border CornerRadius="10" 
+            Grid.RowSpan="2" 
+            Background="{StaticResource BackgroundLightBrush}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                
+            <StackPanel>
+                <Image />
+                <TextBlock Text="Sign in" 
+                           FontSize="40" FontWeight="Light" FontFamily="Helvetica" 
+                           HorizontalAlignment="Center" 
+                           Margin="0, 25, 0, 15"
+                           Foreground="White"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+
+                <Border Background="{StaticResource BackgroundDarkBrush}" 
+                        Margin="20, 10"
+                        CornerRadius="10">
+                    <StackPanel Orientation="Horizontal" Margin="0, 5">
+                        <mdix:PackIcon Kind="Email" Foreground="White" Width="25" Height="25" Margin="8, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBox mdix:HintAssist.Hint="Email"
+                            FontSize="16" FontWeight="Light" FontFamily="Helvetica"
+                            Foreground="White" VerticalAlignment="Center"
+                            MinWidth="280" MaxWidth="280"/>
+                    </StackPanel>
+                </Border>
+
+                <Border Background="{StaticResource BackgroundMediumBrush}" 
+                        Margin="20, 10"
+                        CornerRadius="10">
+                    <StackPanel Orientation="Horizontal" Margin="0, 5">
+                        <mdix:PackIcon Kind="Lock" Foreground="White" Width="25" Height="25" Margin="8, 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <PasswordBox mdix:HintAssist.Hint="Password" 
+                                     FontSize="16" FontWeight="Light" FontFamily="Helvetica"
+                                     Foreground="White"
+                                     MinWidth="280" MaxWidth="280"/>
+                    </StackPanel>
+                </Border>
+
+                <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" 
+                        Background="White" 
+                        Foreground="Black" 
+                        Content="Login" 
+                        Margin="40, 20"/>
+
+                <TextBlock Text="- OR -" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center"/>
+
+                <TextBlock Text="Sign in with" 
+                           Foreground="White" 
+                           Margin="0, 15, 0,0"
+                           HorizontalAlignment="Center"/>
+
+                <Button Background="White" 
+                        Style="{StaticResource MaterialDesignFloatingActionButton}"
+                        BorderBrush="Transparent"
+                        Margin="0, 15">
+                    <Button.Content>
+                        <Image Source="pack://application:,,,/Design/Images/Google-logo.png" Width="30"/>
+                    </Button.Content>
+                </Button>
+
+                <Button Background="Transparent"
+                        BorderBrush="Transparent"
+                        FontSize="12"
+                        Foreground="White"
+                        HorizontalAlignment="Center"
+                        Margin="0, 10">
+                    <Button.Content>
+                        <TextBlock>
+                            Don't have an account? <Bold>Sign up</Bold>
+                        </TextBlock>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

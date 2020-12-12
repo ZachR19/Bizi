@@ -40,8 +40,6 @@
                                     <TextBlock Text="{Binding Header}"
                                                Grid.Row="1"/>
                                 </Grid>
-
-                                <!-- TODO: Change view on checked/unchecked--> 
                             </RadioButton.Content>
                         </RadioButton>
                     </DataTemplate>

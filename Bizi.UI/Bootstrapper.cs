@@ -4,16 +4,33 @@ using StyletIoC;
 
 namespace Bizi
 {
-    public class Bootstrapper : Bootstrapper<ShellViewModel>
+    public class Bootstrapper : Bootstrapper<ShellViewModel>, IBootstrapper
     {
+        IContainer ioc;
         protected override void ConfigureIoC(IStyletIoCBuilder builder)
         {
-            // Configure the IoC container in here
+            builder.Bind<IWindowManager>().To<WindowManager>();
+            builder.Bind<ILoginViewModel>().To<LoginViewModel>();
         }
 
         protected override void Configure()
         {
-            // Perform any other configuration before the application starts
+            var winManager = Container.Get<IWindowManager>();
+            var login = Container.Get<LoginViewModel>();
+
+            winManager.ShowDialog(login);
+        }
+
+        protected override async void OnLaunch()
+        {
+            var email = "raudebaughzach@gmail.com";
+            var pass = "123456789asdfghjkl";
+
+            var hashAndSalt = await Data.SqlDB.GetDBHashAndSalt(email);
+
+            var success = Data.PasswordHasher.VerifyPassword(pass, hashAndSalt.Item2, hashAndSalt.Item1);
+
+            base.OnLaunch();
         }
     }
 

@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Bizi.UI.Design.Styles">
+
+    <FontFamily x:Key="MontserratBlack">pack://application:,,,/Design/Fonts/#Montserrat-Black</FontFamily>
+
+    <SolidColorBrush Color="#343B48" x:Key="BackgroundLightBrush"/>
+    <SolidColorBrush Color="#272B37" x:Key="BackgroundMediumBrush"/>
+    <SolidColorBrush Color="#2D3240" x:Key="BackgroundDarkBrush"/>
+    <SolidColorBrush Color="#1C1D24" x:Key="BorderDarkBrush"/>
+
+    
+    <SolidColorBrush Color="#0DA058" x:Key="GreenAccentBrush"/>
+    <SolidColorBrush Color="#529EF1" x:Key="BlueAccentBrush"/>
+    <SolidColorBrush Color="#B4524A" x:Key="RedAccentBrush"/>
+
+    <Style TargetType="{x:Type Window}">
+        <Setter Property="WindowChrome.WindowChrome">
+            <Setter.Value>
+                <WindowChrome CaptionHeight="50"
+                              ResizeBorderThickness="{x:Static SystemParameters.WindowResizeBorderThickness}"
+                              GlassFrameThickness="0"
+                              CornerRadius="10"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizi.UI", "Bizi.UI\Bizi.UI.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizi.Domain", "Bizi.Domain\Bizi.Domain.csproj", "{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bizi.Data", "Bizi.Data\Bizi.Data.csproj", "{00FCA2C6-3051-4784-983D-762A23D7A1DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F7DD29-94E2-4CDE-A41E-AE7D81B4DDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FCA2C6-3051-4784-983D-762A23D7A1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FCA2C6-3051-4784-983D-762A23D7A1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FCA2C6-3051-4784-983D-762A23D7A1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FCA2C6-3051-4784-983D-762A23D7A1DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

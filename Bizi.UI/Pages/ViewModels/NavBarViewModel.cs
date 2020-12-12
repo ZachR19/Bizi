@@ -10,13 +10,15 @@ namespace Bizi.UI.Pages
     {
         private readonly IEventAggregator _eventAgg;
 
-        public NavBarViewModel(WelcomeViewModel welcome, EmployeeViewModel employees,
+        public NavBarViewModel(WelcomeViewModel welcome, EmployeeViewModel employees, LoginViewModel login,
                                IEventAggregator eventAgg)
         {
             _eventAgg = eventAgg;
 
             Tabs.Add(new BiziTabItem(welcome, "Welcome"));
             Tabs.Add(new BiziTabItem(employees, "Employees"));
+            Tabs.Add(new BiziTabItem(login, "Login"));
+
         }
 
         public BindableCollection<BiziTabItem> Tabs { get; set; } = new BindableCollection<BiziTabItem>();
