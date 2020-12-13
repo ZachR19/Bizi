@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace Bizi.Data
@@ -60,6 +61,65 @@ namespace Bizi.Data
             }
 
             return (hash, salt);
+        }
+
+        /// <summary>
+        /// Determines if a user has already registered an email address
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>Boolean</returns>
+        public static async Task<bool> IsEmailTaken(string email)
+        {
+            using (SqlConnection conn = new SqlConnection(await AzureKeyVaultService.GetKeyFromVault()))
+            {
+                await conn.OpenAsync();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(emailAddress) from UserAccounts WHERE emailAddress = @email", conn))
+                {
+                    cmd.Parameters.AddWithValue("email", email);
+
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                       await reader.ReadAsync();
+                       return (reader.GetInt32(0) > 0) ? true : false;
+                    }
+                }
+            }
+        }
+
+        public static async Task InsertUser(Guid id, string pass, string salt, string email, string first, string last)
+        {
+            using (SqlConnection conn = new SqlConnection(await AzureKeyVaultService.GetKeyFromVault()))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO UserAccounts(userID, userPass, userSalt, emailAddress, firstName, lastName) VALUES(@id, @pass, @salt, @email, @first, @last);", conn))
+                {
+                    cmd.Parameters.AddWithValue("id", id.ToString());
+                    cmd.Parameters.AddWithValue("pass", pass);
+                    cmd.Parameters.AddWithValue("salt", salt);
+                    cmd.Parameters.AddWithValue("email", email);
+                    cmd.Parameters.AddWithValue("first", first);
+                    cmd.Parameters.AddWithValue("last", last);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public static async Task<bool> IsGUIDConflict(Guid id)
+        {
+            using (SqlConnection conn = new SqlConnection(await AzureKeyVaultService.GetKeyFromVault()))
+            {
+                await conn.OpenAsync();
+                using (SqlCommand cmd = new SqlCommand("SELECT userID FROM UserAccounts WHERE userID = @id", conn))
+                {
+                    cmd.Parameters.AddWithValue("id", id);
+
+                    var match = await cmd.ExecuteScalarAsync();
+
+                    return (match != null) ? true : false;
+                }
+            }
         }
 
     }

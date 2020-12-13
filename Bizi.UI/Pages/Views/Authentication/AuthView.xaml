@@ -8,7 +8,7 @@
         xmlns:controls="clr-namespace:Bizi.UI.Controls"
         xmlns:s="https://github.com/canton7/Stylet"
         mc:Ignorable="d" 
-        Height="450" Width="380"
+        Height="470" Width="380"
         WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
         Background="{StaticResource BackgroundLightBrush}">
     <WindowChrome.WindowChrome>
@@ -20,11 +20,20 @@
     
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <mdix:Transitioner SelectedIndex="0" AutoApplyTransitionOrigins="True">
+        <Button Content="X" 
+                Command="{s:Action ShutdownApp}"
+                Background="{StaticResource BackgroundDarkBrush}" 
+                BorderBrush="{StaticResource BackgroundDarkBrush}"
+                Foreground="White" 
+                HorizontalAlignment="Right"
+                WindowChrome.IsHitTestVisibleInChrome="True"/>
+
+        <mdix:Transitioner Grid.Row="1" SelectedIndex="0" AutoApplyTransitionOrigins="True">
             <Grid>
                 <ContentControl s:View.Model="{Binding LoginVM}"/>
             </Grid>

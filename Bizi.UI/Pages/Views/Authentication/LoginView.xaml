@@ -9,6 +9,9 @@
              xmlns:s="https://github.com/canton7/Stylet"
              mc:Ignorable="d" 
              Height="450" Width="380">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVis"/>
+    </UserControl.Resources>
 
     <Border CornerRadius="10"
             Background="{StaticResource BackgroundLightBrush}">
@@ -54,12 +57,18 @@
                     </StackPanel>
                 </Border>
 
+                <TextBlock Text="Invalid Login Credentials" 
+                           Foreground="{StaticResource RedAccentBrush}"  
+                           Visibility="{Binding ShowError, Converter={StaticResource boolToVis}}"
+                           FontWeight="SemiBold"
+                           HorizontalAlignment="Center"/>
+
                 <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" 
                         Command="{s:Action Login}"
                         Background="White" 
                         Foreground="Black" 
                         Content="Login" 
-                        Margin="40, 20"/>
+                        Margin="40, 10"/>
 
                 <TextBlock Text="- OR -" 
                            Foreground="White" 
@@ -74,7 +83,8 @@
                         Style="{StaticResource MaterialDesignFloatingActionButton}"
                         BorderBrush="Transparent"
                         Margin="0, 15"
-                        Width="50" Height="50">
+                        Width="50" Height="50"
+                        IsEnabled="False">
                     <Button.Content>
                         <Image Source="pack://application:,,,/Design/Images/Google-logo.png" Width="30"/>
                     </Button.Content>
