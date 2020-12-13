@@ -21,10 +21,7 @@ namespace Bizi.Data
                 byte[] salt = deriveBytes.Salt;
                 byte[] hash = deriveBytes.GetBytes(20);
 
-                string saltString = Convert.ToBase64String(salt);
-                string hashString = Convert.ToBase64String(hash);
-
-                return (hashString, saltString);
+                return (Convert.ToBase64String(hash), Convert.ToBase64String(salt));
             }
         }
 
@@ -35,10 +32,7 @@ namespace Bizi.Data
                 byte[] hash = deriveBytes.GetBytes(20);
                 string hashString = Convert.ToBase64String(hash);
 
-                if (hashString == DBHash)
-                    return true;
-                else
-                    return false;
+                return (hashString == DBHash) ? true : false;
             }
         }
     }

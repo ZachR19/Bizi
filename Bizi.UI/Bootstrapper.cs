@@ -6,19 +6,20 @@ namespace Bizi
 {
     public class Bootstrapper : Bootstrapper<ShellViewModel>, IBootstrapper
     {
-        IContainer ioc;
         protected override void ConfigureIoC(IStyletIoCBuilder builder)
         {
             builder.Bind<IWindowManager>().To<WindowManager>();
-            builder.Bind<ILoginViewModel>().To<LoginViewModel>();
+            builder.Bind<LoginViewModel>().ToSelf();
+            builder.Bind<RegisterViewModel>().ToSelf();
+            builder.Bind<AuthViewModel>().ToSelf();
         }
 
         protected override void Configure()
         {
             var winManager = Container.Get<IWindowManager>();
-            var login = Container.Get<LoginViewModel>();
+            var auth = Container.Get<AuthViewModel>();
 
-            winManager.ShowDialog(login);
+            winManager.ShowDialog(auth);
         }
 
         protected override async void OnLaunch()
