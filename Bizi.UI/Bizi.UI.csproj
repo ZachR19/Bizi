@@ -110,6 +110,7 @@
     <Compile Include="Pages\ViewModels\Authentication\RegisterViewModel.cs" />
     <Compile Include="Pages\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Pages\ViewModels\NavBarViewModel.cs" />
+    <Compile Include="Pages\ViewModels\User\SettingsViewModel.cs" />
     <Compile Include="Pages\Views\Authentication\AuthView.xaml.cs">
       <DependentUpon>AuthView.xaml</DependentUpon>
     </Compile>
@@ -130,6 +131,9 @@
     </Compile>
     <Compile Include="Pages\ViewModels\ShellViewModel.cs" />
     <Compile Include="Pages\ViewModels\SplashScreenViewModel.cs" />
+    <Compile Include="Pages\Views\User\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Views\WelcomeView.xaml.cs">
       <DependentUpon>WelcomeView.xaml</DependentUpon>
     </Compile>
@@ -207,6 +211,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Views\SplashScreenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Views\User\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

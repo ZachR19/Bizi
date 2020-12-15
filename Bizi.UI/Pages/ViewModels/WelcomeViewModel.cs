@@ -3,7 +3,7 @@ using Bizi.UI.Interfaces;
 
 namespace Bizi.UI.Pages
 {
-    public class WelcomeViewModel : BaseViewModel, IBiziViewModel
+    public class WelcomeViewModel : BaseViewModel
     {
 
         public WelcomeViewModel() : base()

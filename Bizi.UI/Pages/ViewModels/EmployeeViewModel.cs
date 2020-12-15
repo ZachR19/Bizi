@@ -2,7 +2,7 @@
 
 namespace Bizi.UI.Pages
 {
-    public class EmployeeViewModel : BaseViewModel, IBiziViewModel
+    public class EmployeeViewModel : BaseViewModel
     {
 
 

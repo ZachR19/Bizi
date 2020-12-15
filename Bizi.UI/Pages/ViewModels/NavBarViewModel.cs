@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.ComponentModel;
+using System.Linq;
 using Bizi.Domain.Messages;
 using Bizi.UI.Interfaces;
 using PropertyChanged;
@@ -6,26 +7,37 @@ using Stylet;
 
 namespace Bizi.UI.Pages
 {
-    public class NavBarViewModel : BaseViewModel, IBiziViewModel
+    public class NavBarViewModel : BaseViewModel
     {
         private readonly IEventAggregator _eventAgg;
 
         public NavBarViewModel(WelcomeViewModel welcome, EmployeeViewModel employees, LoginViewModel login,
+                               SettingsViewModel settings,
                                IEventAggregator eventAgg)
         {
             _eventAgg = eventAgg;
 
-            Tabs.Add(new BiziTabItem(welcome, "Welcome"));
-            Tabs.Add(new BiziTabItem(employees, "Employees"));
-            Tabs.Add(new BiziTabItem(login, "Login"));
+            Tabs.Add(new BiziTabItem(welcome, "Home"));
+            Tabs.Add(new BiziTabItem(employees, "Person"));
+            Tabs.Add(new BiziTabItem(employees, "Calendar"));
+
+            PersonalTabs.Add(new BiziTabItem(settings, "Settings"));
 
         }
 
         public BindableCollection<BiziTabItem> Tabs { get; set; } = new BindableCollection<BiziTabItem>();
 
+        public BindableCollection<BiziTabItem> PersonalTabs { get; set; } = new BindableCollection<BiziTabItem>();
+
+
         public void RadChecked(BiziTabItem selectedTab)
         {
             foreach (BiziTabItem tab in Tabs)
+            {
+                tab.IsShown = false;
+            }
+
+            foreach (BiziTabItem tab in PersonalTabs)
             {
                 tab.IsShown = false;
             }
@@ -36,7 +48,7 @@ namespace Bizi.UI.Pages
         }
     }
 
-    public class BiziTabItem
+    public class BiziTabItem : INotifyPropertyChanged
     {
         public BiziTabItem(IBiziViewModel model, string header)
         {
@@ -58,5 +70,6 @@ namespace Bizi.UI.Pages
 
         public bool IsEnabled { get; set; } = true;
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

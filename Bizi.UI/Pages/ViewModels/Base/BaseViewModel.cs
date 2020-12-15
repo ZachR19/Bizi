@@ -1,4 +1,5 @@
-﻿using Stylet;
+﻿using Bizi.UI.Interfaces;
+using Stylet;
 using System;
 using System.ComponentModel;
 
@@ -7,7 +8,7 @@ namespace Bizi.UI
     /// <summary>
     /// Disposable wrapper for any viewmodel
     /// </summary>
-    public class BaseViewModel : Screen, IDisposable, INotifyPropertyChanged
+    public class BaseViewModel : Screen, IDisposable, INotifyPropertyChanged, IBiziViewModel
     {
         /// <summary>
         /// Initializes a new instance of <see cref="BaseViewModel"/>

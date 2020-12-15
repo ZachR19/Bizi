@@ -12,39 +12,54 @@
     </UserControl.Resources>
 
     <Grid>
-        <materialDesign:ColorZone
-            Padding="4"
-            Mode="Inverted">
-            <ItemsControl ItemsSource="{Binding Tabs}"
-                          Background="Transparent" >
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <ItemsControl ItemsSource="{Binding Tabs}" Width="50" >
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <RadioButton Foreground="Black"
-                                     Style="{StaticResource MaterialDesignTabRadioButton}"
-                                     IsChecked="{Binding IsChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                                     Visibility="{Binding IsEnabled, Mode=OneTime, Converter={StaticResource boolToVis}}"
-                                     Command="{s:Action RadChecked}" CommandParameter="{Binding}">
-                            <RadioButton.Content>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Foreground="White"
+                                 Style="{StaticResource TabRadioButton}"
+                                 IsChecked="{Binding IsChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Visibility="{Binding IsEnabled, Mode=OneTime, Converter={StaticResource boolToVis}}"
+                                 Command="{s:Action RadChecked}" CommandParameter="{Binding}">
+                        <RadioButton.Content>
+                             <materialDesign:PackIcon Kind="{Binding Header}" Width="20" Height="20"/>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-                                    <TextBlock Text="{Binding Header}"
-                                               Grid.Row="1"/>
-                                </Grid>
-                            </RadioButton.Content>
-                        </RadioButton>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </materialDesign:ColorZone>
+        <ItemsControl ItemsSource="{Binding PersonalTabs}"
+                      Grid.Row="1">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Foreground="White"
+                                 Style="{StaticResource TabRadioButton}"
+                                 IsChecked="{Binding IsChecked, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                                 Visibility="{Binding IsEnabled, Mode=OneTime, Converter={StaticResource boolToVis}}"
+                                 Command="{s:Action RadChecked}" CommandParameter="{Binding}">
+                        <RadioButton.Content>
+                            <materialDesign:PackIcon Kind="{Binding Header}" Width="20" Height="20"/>
+                        </RadioButton.Content>
+                    </RadioButton>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </Grid>
 </UserControl>
